@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 
 using namespace std;
 
@@ -9,6 +10,22 @@ struct Column {
 
 struct Row {
     int *index;
+};
+
+class Table {
+private:
+    vector<Column> *columns = nullptr;
+public:
+    Table() {
+        this->columns = new vector<Column>;
+    };
+
+    void addColumn(string columnName) {
+        Column column;
+        column.name = columnName;
+
+        this->columns->push_back(column);
+    };
 };
 
 int main() {
